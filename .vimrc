@@ -8,7 +8,7 @@ set scrolloff=3     " keep 3 lines when scrolling
 set ls=2            " allways show status line
 set showcmd         " display incomplete commands
 set backspace=2
-
+set wm=10
 set report=0
 
 "afficher une liste lors de complétion de commande
@@ -394,4 +394,6 @@ function MakeList (text1, text2, text3) range
         endif
 endfunction 
 
+autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=fr
+autocmd BufNewFile,BufRead *.tex setlocal spell spelllang=fr
 
