@@ -41,9 +41,9 @@ syn keyword tasmDirective STRUC SUBSTR %SUBTTL %SYMS TABLE %TABSIZE TBLINIT
 syn keyword tasmDirective TBLINST TBLPTR TESTFLAG %TEXT %TITLE %TRUNC TYPEDEF
 syn keyword tasmDirective UDATASEG UFARDATA UNION USES VERSION WAR WHILE ?DEBUG
 
-syn keyword tasmInstruction AAA AAD AAM AAS ADC ADD AND ARPL BOUND BSF BSR
+syn keyword tasmInstruction AAA AAD AAM AAS ADC ADD AND ARPL BOUND BSF BSR BHS B BGE BLT BNE BEQ
 syn keyword tasmInstruction BSWAP BT BTC BTR BTS CALL CBW CLC CLD CLI CLTS
-syn keyword tasmInstruction CMC CMP CMPXCHG CMPXCHG8B CPUID CWD CDQ CWDE
+syn keyword tasmInstruction CMC CMP CMPXCHG CMPXCHG8B CPUID CWD CDQ CWDE 
 syn keyword tasmInstruction DAA DAS DEC DIV ENTER RETN RETF F2XM1
 syn keyword tasmCoprocInstr FABS FADD FADDP FBLD FBSTP FCHG FCOM FCOM2 FCOMI
 syn keyword tasmCoprocInstr FCOMIP FCOMP FCOMP3 FCOMP5 FCOMPP FCOS FDECSTP
@@ -63,7 +63,7 @@ syn keyword tasmInstruction LMSW LOCK LODSB LSL LSS LTR MOV MOVSX MOVZX MUL
 syn keyword tasmInstruction NEG NOP NOT OR OUT POP POPA POPAD POPF POPFD PUSH
 syn keyword tasmInstruction PUSHA PUSHAD PUSHF PUSHFD RCL RCR RDMSR RDPMC RDTSC
 syn keyword tasmInstruction REP RET ROL ROR RSM SAHF SAR SBB SGDT SHL SAL SHLD
-syn keyword tasmInstruction SHR SHRD SIDT SMSW STC STD STI STR SUB TEST VERR
+syn keyword tasmInstruction SHR SHRD SIDT SMSW STC STD STI STR SUB TEST VERR RSB RSBLT
 syn keyword tasmInstruction VERW WBINVD WRMSR XADD XCHG XLAT XOR
 syn keyword tasmMMXinst     EMMS MOVD MOVQ PACKSSDW PACKSSWB PACKUSWB PADDB
 syn keyword tasmMMXinst     PADDD PADDSB PADDSB PADDSW PADDUSB PADDUSW PADDW
@@ -81,7 +81,7 @@ syn match tasmInstruction "\<\(LOOP\|REP\)N\=[EZ]\=\>"
 syn match tasmRegister "\<[A-D][LH]\>"
 syn match tasmRegister "\<E\=\([A-D]X\|[SD]I\|[BS]P\)\>"
 syn match tasmRegister "\<[C-GS]S\>"
-syn region tasmComment start=";" end="$"
+syn region tasmComment start="@" end="\n"
 "HACK! comment ? ... selection
 syn region tasmComment start="comment \+\$" end="\$"
 syn region tasmComment start="comment \+\~" end="\~"
@@ -90,6 +90,7 @@ syn region tasmString start="'" end="'"
 syn region tasmString start='"' end='"'
 
 syn match tasmDec "\<-\=[0-9]\+\.\=[0-9]*\>"
+syn match tasmCst "\<-\=[0-9]\+\.\=[0-9]*\>"
 syn match tasmHex "\<[0-9][0-9A-F]*H\>"
 syn match tasmOct "\<[0-7]\+O\>"
 syn match tasmBin "\<[01]\+B\>"
@@ -107,6 +108,7 @@ if version >= 508 || !exists("did_tasm_syntax_inits")
 
   HiLink tasmString String
   HiLink tasmDec Number
+  HiLink tasmCst Number
   HiLink tasmHex Number
   HiLink tasmOct Number
   HiLink tasmBin Number

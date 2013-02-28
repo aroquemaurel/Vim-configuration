@@ -196,38 +196,50 @@ syntax keyword adaTypedef	subtype type
 "
 " "abort" after "then" is a conditional of its own.
 "
-syntax match    adaConditional  "\<si\>"
-syntax match    adaConditional  "\<alors\>"
-syntax match    adaConditional	"\<sinon\>"
-syntax match    adaConditional	"\<fin\s\+si\>"
-syntax match    adaConditional  "\<non\>"
+"syntax match    adaConditional  "\<si\>"
+"syntax match    adaConditional  "\<alors\>"
+"syntax match    adaConditional	"\<sinon\>"
+"syntax match    adaConditional	"\<fin\s\+si\>"
+"syntax match    adaConditional  "\<non\>"
 
 
-syntax match    adaConditional	"\<entree\>"
-syntax match    adaConditional	"\<sortie\>"
-syntax match    adaConditional  "\<maj\>"
-syntax match    adaConditional "\<retourne\>"
-syntax match    adaConditional "\<declenche\>"
-syntax match    adaConditional "\<declencher\>"
-syntax match    adaConditional "\<retourner\>"
-syntax match    adaConditional "\<allouer\>"
+"syntax match    adaConditional	"\<entree\>"
+"syntax match    adaConditional	"\<sortie\>"
+"syntax match    adaConditional  "\<maj\>"
+"syntax match    adaConditional "\<retourne\>"
+"syntax match    adaConditional "\<declenche\>"
+"syntax match    adaConditional "\<declencher\>"
+"syntax match    adaConditional "\<retourner\>"
+"syntax match    adaConditional "\<allouer\>"
 
-syntax match    adaStructure	"\<Constante\>"
-syntax match    adaStructure	"\<Entier\>"
-syntax match    adaStructure	"\<Reel\>"
-syntax match    adaStructure	"\<Booleen\>"
-syntax match    adaStructure	"\<Caractere\>"
+syntax match    adaStructure	"\<ADD\>"
+syntax match    adaStructure	"\<LDR\>"
+syntax match    adaStructure	"\<SUB\>"
+syntax match    adaStructure	"\<MOV\>"
+syntax match    adaStructure	"\<MVN\>"
+syntax match    adaStructure	"\<CMP\>"
+syntax match    adaStructure	"\<B\>"
+syntax match    adaStructure	"\<TST\>"
+syntax match    adaStructure	"\<TEQ\>"
+syntax match    adaStructure	"\<SBC\>"
+syntax match    adaStructure	"\<RSB\>"
+syntax match    adaStructure	"\<RSC\>"
+syntax match    adaStructure	"\<AND\>"
+syntax match    adaStructure	"\<ORR\>"
+syntax match    adaStructure	"\<EOR\>"
+syntax match    adaStructure	"\<BHS\>"
+syntax match    adaStructure	"\<BIC\>"
 
-syntax match    adaConditional  "\<tantque\>"
-syntax match    adaConditional  "\<faire\>"
+"syntax match    adaConditional  "\<tantque\>"
+"syntax match    adaConditional  "\<faire\>"
 
-syntax match    adaStructure	"\<glossaire\>"
-syntax match    adaConditional  "\<debut\>"
-syntax match    adaConditional  "\<entraîne\>"
-syntax match    adaConditional  "\<necessite\>"
-syntax match    adaConditional  "\<fin\>"
-syntax keyword  adaConditional	if case select
-syntax keyword  adaConditional	elsif when
+"syntax match    adaStructure	"\<glossaire\>"
+"syntax match    adaConditional  "\<debut\>"
+"syntax match    adaConditional  "\<entraîne\>"
+"syntax match    adaConditional  "\<necessite\>"
+"syntax match    adaConditional  "\<fin\>"
+"syntax keyword  adaConditional	if case select
+"syntax keyword  adaConditional	elsif when
 
 " Section: other keywords {{{1
 syntax match    adaKeyword	    "\<is\>" contains=adaRecord
@@ -289,7 +301,7 @@ syntax keyword adaTodo contained TODO FIXME XXX NOTE
 syntax region  adaComment 
     \ oneline 
     \ contains=adaTodo,adaLineError,@Spell
-    \ start="--" 
+    \ start="@" 
     \ end="$"
 
 " Section: line errors {{{1
